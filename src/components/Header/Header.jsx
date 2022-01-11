@@ -14,7 +14,7 @@ function Header() {
               type="text"
               name="search"
               id="search"
-              className="text-lg pl-8 outline-none bg-green-300"
+              className="text-lg pl-8 outline-none bg-green-300 rounded-lg"
               placeholder="Search "
             />
             <FaSearch className="absolute top-1 left-1 text-xl" />
