@@ -13,7 +13,8 @@ function List({ places, childClicked }) {
       .map((_, i) => elRefs[i] || createRef());
 
     setElRefs(refs);
-    console.log(elRefs);
+    console.log(refs);
+    // eslint-disable-next-line
   }, [places]);
 
   return (
@@ -60,7 +61,7 @@ function List({ places, childClicked }) {
       {/* CONTAINS CARD WITH LOCATION DETAILS */}
       <div className="grid grid-cols-1 grid-rows-auto h-full overflow-y-scroll h-[73vh] p-2 ">
         {places?.map((place, i) => (
-          <div ref={elRefs[i]} key={i}>
+          <div ref={elRefs[i]}>
             <PlaceDetails
               refProp={elRefs[i]}
               place={place}

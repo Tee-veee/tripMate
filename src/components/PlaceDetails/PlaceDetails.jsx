@@ -1,11 +1,13 @@
 import { FaMapMarkerAlt, FaPhone, FaStar } from "react-icons/fa";
 
 function PlaceDetails({ place, selected, refProp }) {
-  if (selected)
+  if (selected) {
     refProp?.current?.scrollIntoView({
-      behaviour: "smooth",
-      block: "start",
+      behavior: "smooth",
+      block: "end",
+      inline: "nearest",
     });
+  }
 
   return (
     <div className="w-full h-fit p-2 bg-green-200 mb-4 shadow-lg">
@@ -16,7 +18,7 @@ function PlaceDetails({ place, selected, refProp }) {
             : "https://www.foodserviceandhospitality.com/wp-content/uploads/2016/09/Restaurant-Placeholder-001.jpg"
         }
         alt="Restaurant Banner"
-        className=""
+        className="object-cover w-full"
       />
       <div className="flex flex-col p-2">
         <h1 className=" text-2xl mb-2">{place.name}</h1>
@@ -24,7 +26,7 @@ function PlaceDetails({ place, selected, refProp }) {
           <h1 className=" text-lg">Stars</h1>
           <div className="flex">
             <h1 className="text-sm mr-2" value={Number(place.rating)}>
-              {place.rating.slice(0, 1)}
+              {place.rating}
             </h1>
             <FaStar className="text-xl" fill="gold" />
           </div>

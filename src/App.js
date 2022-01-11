@@ -18,7 +18,6 @@ function App() {
   });
 
   const [childClicked, setChildClicked] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
 
   const testData = [
     {
@@ -203,7 +202,7 @@ function App() {
           },
           large: {
             width: "550",
-            url: "https://www.simplyrecipes.com/thmb/G7HTG2YP5tQXjjv9hFljayFUkww=/1423x1067/smart/filters:no_upscale()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2013__02__pasta-puttanesca-fork-horiz-1600-aeb7e018a32b4bc2ae85ea893cabdb40.jpg",
+            url: "https://hips.hearstapps.com/hmg-prod/images/delish-bucatinipasta-028-ls-1607552701.jpg",
             height: "318",
           },
           medium: {
@@ -494,26 +493,23 @@ function App() {
         setCoords({ lat: latitude, lng: longitude });
       }
     );
-    setPlaces(testData);
   }, []);
 
   useEffect(() => {
-    // setIsLoading(true);
-    // getPlacesData(coordBounds.sw, coordBounds.ne).then((data) => {
-    //   console.log(data);
-    //   setPlaces(data);
-    //   setIsLoading(false)
-    // });
+    getPlacesData(coordBounds.sw, coordBounds.ne).then((data) => {
+      console.log(data);
+      setPlaces(data);
+    });
   }, [coords, coordBounds]);
 
   return (
     <div className="h-screen">
       <Header />
-      <div className="grid w-full grid-cols-1 grid-rows-2 md:grid-cols-4 md:grid-rows-1 md:auto-cols-auto h-[95vh]">
-        <div className="grid w-full">
+      <div className="flex h-[95vh] w-full">
+        <div className="flex w-3/12">
           <List places={places} childClicked={childClicked} />
         </div>
-        <div className="grid md:col-span-3 w-full">
+        <div className="flex w-9/12 items-center justify-center">
           <Map
             setCoords={setCoords}
             setCoordBounds={setCoordBounds}

@@ -1,21 +1,20 @@
-/*global google*/
 import { useState, useEffect } from "react";
 
 import GoogleMapReact from "google-map-react";
-import { FaMapMarkerAlt, FaStar } from "react-icons/fa";
-import { Marker } from "@react-google-maps/api";
+import { FaMapMarkerAlt } from "react-icons/fa";
 const MAPS_API = process.env.REACT_APP_MAPS_API;
 
 function Map({ coords, setCoords, setCoordBounds, places, setChildClicked }) {
   const [isMobile, setIsMobile] = useState("");
   const [windowWidth, setWindowWidth] = useState("");
-  console.log(MAPS_API);
+
   const MobileMarkerComp = ({ icon }) => {
-    return <div className="">{icon}</div>;
+    return <div>{icon}</div>;
   };
 
   useEffect(() => {
     setWindowWidth(window.innerWidth);
+    // eslint-disable-next-line
   }, [window.innerWidth]);
 
   useEffect(() => {
@@ -27,15 +26,12 @@ function Map({ coords, setCoords, setCoordBounds, places, setChildClicked }) {
   }, [windowWidth]);
 
   return (
-    <div className="px-12 py-8">
-      {/* NOTES -- MAP COMPONENT*/}
+    <div className="h-[85vh] w-full">
       <GoogleMapReact
         bootstrapURLKeys={{ key: MAPS_API }}
+        defaultCenter={coords}
         center={coords}
         defaultZoom={14}
-        margin={[50, 50, 50, 50]}
-        options={{ disableDefaultUI: true, zoomControl: true }}
-        yesIWantToUseGoogleMapApiInternals
         onChildClick={(child) => {
           setChildClicked(child);
         }}

@@ -1,4 +1,3 @@
-import { Autocomplete } from "@react-google-maps/api";
 import { FaSearch } from "react-icons/fa";
 
 function Header() {
@@ -7,7 +6,7 @@ function Header() {
       <div className="text-2xl">tripMate</div>
       <div className="flex items-center justify-center">
         <h1 className="text-xl mr-4">Explore new places</h1>
-        {/* <Autocomplete> */}
+
         <div>
           <div className="relative">
             <input
@@ -20,7 +19,6 @@ function Header() {
             <FaSearch className="absolute top-1 left-1 text-xl" />
           </div>
         </div>
-        {/* </Autocomplete> */}
       </div>
     </div>
   );
