@@ -1,10 +1,10 @@
 # tripMate
 
 tripMate
-tripMate is a desktop app which allows you to search for different type of locations (hotels, restaurants, attracts) on a global map and gives you a nice UI to interact with, which then gives you detailed information about the selectedd place.
+tripMate is a desktop app which allows you to search for different type of locations (hotels, restaurants, attracts) on a global map and gives you a nice UI to interact with, which then gives you detailed information about the selected place.
 
 why TYMDB
-to improve on my UI skills, interactivity, working with API's and for fun!
+to improve on my UI/UX skills, development skills, interactivity and user experience, working with API's and for fun!
 
 using TYMDB
 designed for desktop!
