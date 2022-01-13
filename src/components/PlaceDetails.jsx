@@ -1,6 +1,7 @@
 import { FaMapMarkerAlt, FaPhone, FaStar } from "react-icons/fa";
 
 function PlaceDetails({ place, selected, refProp }) {
+  // SCROLLS DIV INTO VIEW ON LIST WHEN IT IS SELECTED
   if (selected) {
     refProp?.current?.scrollIntoView({
       behavior: "smooth",
@@ -10,7 +11,11 @@ function PlaceDetails({ place, selected, refProp }) {
   }
 
   return (
-    <div className="w-full h-fit p-2 bg-green-200 mb-4 shadow-lg">
+    <div
+      className={`w-full h-fit ${
+        selected ? "bg-blue-200" : "bg-white"
+      } mb-4 shadow-lg`}
+    >
       <img
         src={
           place.photo
@@ -18,7 +23,7 @@ function PlaceDetails({ place, selected, refProp }) {
             : "https://www.foodserviceandhospitality.com/wp-content/uploads/2016/09/Restaurant-Placeholder-001.jpg"
         }
         alt="Restaurant Banner"
-        className="object-cover w-full"
+        className="object-cover w-full p-2"
       />
       <div className="flex flex-col p-2">
         <h1 className=" text-2xl mb-2">{place.name}</h1>
@@ -62,20 +67,27 @@ function PlaceDetails({ place, selected, refProp }) {
           </div>
         )}
       </div>
-      <div className="flex mb-2 w-full">
-        <button
-          className="flex items-center mr-8 text-sm text-blue-600"
-          onClick={() => window.open(place.web_url, "_blank")}
-        >
-          Trip Advisor
-        </button>
-        <button
-          className="flex items-center text-sm text-blue-600"
-          onClick={() => window.open(place.website, "_blank")}
-        >
-          Website
-        </button>
-      </div>
+      {place?.wesbite ||
+        (place?.web_url && (
+          <div className="flex mb-2 w-full p-2">
+            {place.web_url && (
+              <button
+                className="flex items-center mr-8 text-sm text-blue-600"
+                onClick={() => window.open(place.web_url, "_blank")}
+              >
+                Trip Advisor
+              </button>
+            )}
+            {place.website && (
+              <button
+                className="flex items-center text-sm text-blue-600"
+                onClick={() => window.open(place.website, "_blank")}
+              >
+                Website
+              </button>
+            )}
+          </div>
+        ))}
     </div>
   );
 }

@@ -2,8 +2,8 @@ import { Bars } from "svg-loaders-react";
 
 function Loading() {
   return (
-    <div>
-      <Bars fill="black" />
+    <div className="mb-20">
+      <Bars fill="blue" />
     </div>
   );
 }
